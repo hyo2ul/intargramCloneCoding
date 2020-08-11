@@ -1,0 +1,13 @@
+.header {
+	height:50px;
+	background:#fff;
+	border-bottom:1px solid red;
+	&__logo {
+		margin:6px 0 0 0;
+		text-align:center;
+		&--img {
+			display:inline-block;
+			max-width:40px;
+		}
+	}
+}

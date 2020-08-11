@@ -4,13 +4,17 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import BootstrapVue from 'bootstrap-vue'
+import axios from 'axios'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
 
-Vue.use(BootstrapVue)
+Vue.use({
+  BootstrapVue
+})
 
 new Vue({
   router,

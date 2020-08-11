@@ -2,13 +2,53 @@
   "memo": [
     {
       "id": 1,
-      "title": "wonmin2",
-      "body": "열심히 하세요2"
+      "title": "먹스타그램",
+      "desctiption": "먹스타그램 내용입니다",
+      "hashtag": "#먹스타그램",
+      "image": {
+        "thumb": "https://image.shutterstock.com/image-photo/blank-white-plastic-wafer-usb-600w-1043479198.jpg",
+        "detail": "@/assets/images/photo/thumb_small01_01.png"
+      }
     },
     {
-      "title": "wonmin3",
-      "body": "열심히 하세요3",
-      "id": 2
+      "id": 2,
+      "title": "인스타그램",
+      "desctiption": "내용입니다2",
+      "hashtag": "#인스타그램",
+      "image": {
+        "thumb": "@/assets/images/photo/thumb_small02_01.png",
+        "detail": "@/assets/images/photo/thumb_small02_01.png"
+      }
+    },
+    {
+      "id": 3,
+      "title": "주식정보 추천~",
+      "desctiption": "오늘의 추천 주식은요... 그것은 바로",
+      "hashtag": "#주식, #주식타그램",
+      "image": {
+        "thumb": "@/assets/images/photo/thumb_small03_01.png",
+        "detail": "@/assets/images/photo/thumb_small03_01.png"
+      }
+    },
+    {
+      "id": 4,
+      "title": "먹스타그램",
+      "desctiption": "먹스타그램 내용입니다",
+      "hashtag": "#먹스타그램",
+      "image": {
+        "thumb": "https://image.shutterstock.com/image-photo/blank-white-plastic-wafer-usb-600w-1043479198.jpg",
+        "detail": "@/assets/images/photo/thumb_small01_01.png"
+      }
+    },
+    {
+      "id": 5,
+      "title": "먹스타그램",
+      "desctiption": "먹스타그램 내용입니다",
+      "hashtag": "#먹스타그램",
+      "image": {
+        "thumb": "https://image.shutterstock.com/image-photo/blank-white-plastic-wafer-usb-600w-1043479198.jpg",
+        "detail": "@/assets/images/photo/thumb_small01_01.png"
+      }
     }
   ]
 }
