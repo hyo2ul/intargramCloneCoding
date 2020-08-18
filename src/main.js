@@ -3,18 +3,22 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import BootstrapVue from 'bootstrap-vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import axios from 'axios'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.prototype.$httpUrl = 'http://localhost:3000/memo'
+// Vue.prototype.asset = {
+//   root: getUrl
+// }
 
-Vue.use({
-  BootstrapVue
-})
+Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 
 new Vue({
   router,

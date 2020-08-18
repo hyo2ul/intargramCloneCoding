@@ -1,13 +1,96 @@
 .header {
-	height:50px;
-	background:#fff;
-	border-bottom:1px solid red;
-	&__logo {
-		margin:6px 0 0 0;
-		text-align:center;
-		&--img {
-			display:inline-block;
-			max-width:40px;
-		}
-	}
+  z-index:1;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 50px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  &__logo {
+    margin: 6px 0 0 0;
+    padding: 0 15px;
+    text-align:center;
+    &--img {
+      display: inline-block;
+      margin:4px 0 0 0;
+      max-width: 90px;
+    }
+  }
+}
+
+.body {
+  padding:50px 0;
+  font-size:14px;
+}
+
+.footer {
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:50px;
+  box-shadow: 0px 3px 39px -7px rgba(125, 125, 125, 0.45);
+  background:#fff;
+  &__inner {
+    position: relative;
+    display:flex;
+    align-items: center;
+
+    height:100%;
+    padding:0 15px;
+    .b-icon {
+      &.bi {
+        width:25px;
+        height:25px;
+      }
+    }
+    &--add{
+      margin-left: calc(50% - 40px);
+    }
+  }
+}
+
+.post {
+  &__item {
+    & ~ & {
+      margin-top:15px;
+    }
+    .users {
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 60px;
+      padding: 0 0 0 15px;
+      background: #fff;
+      &__profile {
+        overflow: hidden;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &__name {
+        margin: 0 0 0 10px;
+        font-weight:bold;
+        color: #222;
+      }
+    }
+    .likes {
+      padding: 5px 0;
+      &__button {
+        padding:0 8px 0 15px;
+      }
+    }
+    .caption {
+      &__name{
+        font-weight:bold;
+      }
+      padding:0 15px 15px 15px;
+    }
+  }
 }

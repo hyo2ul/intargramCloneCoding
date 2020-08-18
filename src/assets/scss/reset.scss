@@ -132,6 +132,15 @@ img {
   width: 100%;
 }
 
+a {
+  text-decoration:none !important;
+  color:#222 !important;
+  &:active,
+  &:focus{
+    text-decoration:none !important;
+  }
+}
+
 .blind {
   position: absolute !important;
   width: 1px;

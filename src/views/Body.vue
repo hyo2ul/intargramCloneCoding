@@ -1,32 +1,36 @@
 <template>
   <div class="body">
-    <ul>
-      <li
-        v-for="item in postList"
-        :key="item.id"
-      >
-        <router-link to="/detail">
-          <div class="thumb">
-            <img :src="item.image.thumb" :alt="item.title">
-          </div>
-        </router-link>
-      </li>
-    </ul>
+    <div class="post">
+      <Post
+        v-for="item in posts" :key="item.id"
+        :post="item"
+        @handleCilck="handleHeart(item)"
+      />
+    </div>
   </div>
 </template>
 <script>
+import Post from '@/components/Post'
+
 export default {
   name: 'Body',
-  data () {
-    return {
-      url: 'http://localhost:3000/memo',
-      postList: []
-    }
+  props: {
+    posts: Array
   },
   components: {
+    Post
   },
   methods: {
-    // TODO: write 페이지 만들게되면 submit 예시
+    handleHeart (data) {
+      const { id } = data
+      const url = this.$httpUrl + '/' + id
+      const currentPost = this.posts.find(post => post.id)
+      currentPost.isHeart ? currentPost.likeCount-- : currentPost.likeCount++
+      currentPost.isHeart = !currentPost.isHeart
+      this.$http.put(url, data)
+        .catch(err => console.log(err))
+    }
+    // TODO: write 페이지 만`들게되면 submit 예시
     // handleSubmit (data) {
     //   const id = this.postList.length + 1
     //   const newData = Object.assign({
@@ -44,17 +48,6 @@ export default {
     //       console.log(err)
     //     })
     // }
-  },
-  mounted () {
-    const url = this.url
-    this.$http.get(url)
-      .then(res => {
-        const { data } = res
-        this.postList = data
-      })
-      .catch(err => {
-        console.log(err)
-      })
   }
 }
 </script>
