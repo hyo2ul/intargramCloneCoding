@@ -101,10 +101,9 @@ export default {
       this.$http.get(this.$httpUrl)
         .then(res => {
           const { data } = res
-          data.sort((a, b) => {
+          this.posts = data.sort((a, b) => {
             return b.id - a.id
           })
-          this.posts = data
         })
         .catch(err => console.log(err))
     }
