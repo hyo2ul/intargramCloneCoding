@@ -17,6 +17,22 @@
       max-width: 90px;
     }
   }
+  .btn {
+    position: absolute;
+    top:0;
+    height:100%;
+    color:#007bff;
+    &__first {
+      left:0;
+    }
+    &__last,
+    &__share {
+      right:0;
+    }
+    &:focus{
+      color:#007bff;
+    }
+  }
 }
 
 .body {
@@ -36,7 +52,6 @@
     position: relative;
     display:flex;
     align-items: center;
-
     height:100%;
     padding:0 15px;
     .b-icon {
@@ -45,8 +60,27 @@
         height:25px;
       }
     }
-    &--add{
+    &--home{
+      background:none;
+      border:none;
+    }
+    &--file{
+      position: relative;
       margin-left: calc(50% - 40px);
+      .inputFile {
+        position: absolute;
+        top:0;
+        left:0;
+        opacity:0;
+        width:100%;
+        height:100%;
+        &:disabled + label {
+          opacity:0.5;
+        }
+      }
+      label {
+        margin:0;
+      }
     }
   }
 }
@@ -80,6 +114,12 @@
         color: #222;
       }
     }
+    &--image {
+      padding-top:60%;
+      background-position:0 0;
+      background-size:100%;
+      background-repeat: no-repeat;
+    }
     .likes {
       padding: 5px 0;
       &__button {
@@ -87,10 +127,37 @@
       }
     }
     .caption {
+      word-break: break-all;
       &__name{
         font-weight:bold;
       }
       padding:0 15px 15px 15px;
+    }
+  }
+}
+
+.photo__write {
+  position: relative;
+  &--image {
+    padding-top:74%;
+    height:100%;
+    background-position:0 0;
+    background-size:100%;
+    background-repeat: no-repeat;
+  }
+  &--container {
+    overflow: auto;
+    white-space: nowrap;
+    width: 100%;
+    margin-top:10px;
+    padding-right:10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  &--caption {
+    textarea {
+      width:100%;
+      padding:20px;
+      border:none;
     }
   }
 }

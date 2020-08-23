@@ -1,24 +1,80 @@
 <template>
   <div class="body">
-    <div class="post">
+    <!-- feed -->
+    <div
+      v-if="step === 1"
+      class="post"
+    >
       <Post
         v-for="item in posts" :key="item.id"
         :post="item"
         @handleCilck="handleHeart(item)"
       />
     </div>
+    <!-- //feed -->
+    <!-- phoot upload -->
+    <div
+      v-if="step === 2"
+      class="photo__write"
+    >
+      <div
+        :class="['photo__write--image', selectedFilter]"
+        :style="{ 'background-image': 'url('+ image +')' }"
+      >
+      </div>
+      <div class="photo__write--container">
+        <!-- where filter choices will be -->
+        <FilterType
+          v-for="filter in filters"
+          :key="filter.name"
+          :image="image"
+          :filter="filter"
+          @click="handleClick"
+        />
+      </div>
+    </div>
+    <!-- //phoot upload -->
+    <!-- write -->
+    <div
+      v-if="step === 3"
+    >
+      <div
+        :class="['photo__write--image', selectedFilter]"
+        :style="{ 'background-image': 'url('+ image +')' }"
+      >
+      </div>
+      <div class="photo__write--caption">
+        <textarea
+          :value="value"
+          cols="30"
+          rows="10"
+          placeholder="Write a caption..."
+          @keyup="handleKeyup"
+        >
+        </textarea>
+      </div>
+    </div>
+    <!-- //write -->
   </div>
 </template>
 <script>
 import Post from '@/components/Post'
+import FilterType from '@/components/FilterType'
 
 export default {
   name: 'Body',
   props: {
-    posts: Array
+    step: Number,
+    image: String,
+    selectedFilter: String,
+    caption: String,
+    posts: Array,
+    filters: Array,
+    value: String
   },
   components: {
-    Post
+    Post,
+    FilterType
   },
   methods: {
     handleHeart (data) {
@@ -29,25 +85,15 @@ export default {
       currentPost.isHeart = !currentPost.isHeart
       this.$http.put(url, data)
         .catch(err => console.log(err))
+    },
+    handleClick (data) {
+      this.$emit('click', data)
+    },
+    handleKeyup (data) {
+      this.$emit('handleKeyup', data)
     }
-    // TODO: write 페이지 만`들게되면 submit 예시
-    // handleSubmit (data) {
-    //   const id = this.postList.length + 1
-    //   const newData = Object.assign({
-    //     ...data,
-    //     id
-    //   })
-    //   const url = this.url
-    //   const param = newData
-    //   this.$http.post(url, param)
-    //     .then(res => {
-    //       const { data } = res
-    //       console.log(data)
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //     })
-    // }
+  },
+  mounted () {
   }
 }
 </script>

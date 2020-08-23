@@ -13,9 +13,6 @@ import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.$httpUrl = 'http://localhost:3000/memo'
-// Vue.prototype.asset = {
-//   root: getUrl
-// }
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)

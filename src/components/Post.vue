@@ -6,8 +6,11 @@
       </div>
       <a href="#" class="users__name">{{ post.userName }}</a>
     </div>
-    <div class="thumb">
-      <img :src="`/img/${post.image}`" :alt="post.title" />
+    <div
+      :class="['post__item--image', post.filter]"
+      :style="{ 'background-image': 'url('+ `${post.image}` +')' }"
+    >
+      <span class="blind">{{ post.title }}</span>
     </div>
     <div class="likes">
       <button
